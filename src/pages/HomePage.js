@@ -76,7 +76,7 @@ const HomePage = () => {
     },
   ];
 
-  const rows = cars.map((car) => ({
+  const rows = (cars || []).map((car) => ({
     id: car._id,
     name: car.make + " " + car.model,
     size: car.size,
