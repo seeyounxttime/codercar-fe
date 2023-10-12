@@ -75,7 +75,6 @@ const HomePage = () => {
       ),
     },
   ];
-
   const rows = cars.map((car) => ({
     id: car._id,
     name: car.make + " " + car.model,
@@ -86,11 +85,14 @@ const HomePage = () => {
     release_date: car.release_date,
   }));
 
-  const getData = useCallback(async () => {
+  const getData =
+    useCallback(
+      async () => {
     const res = await apiService.get(`/cars?page=${page}`);
     setCars(res.cars);
     setTotalPages(res.totalPages);
-  }, [page]);
+      }
+      , [page]);
 
   useEffect(() => {
     getData();
